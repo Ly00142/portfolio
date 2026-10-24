@@ -1859,3 +1859,17 @@ footer {
     height: 56px;
     padding: 3px;
 }
+
+/* Logo DANONE blanc : la pastille prend le bleu du mot DANONE */
+.timeline-logos img[alt="DANONE"] {
+    background: #3055ae;
+    padding: 4px 8px;
+}
+
+.expertise-image.logo-banner:has(img[alt="DANONE"]) {
+    background: #3055ae;
+}
+
+.expertise-image.logo-banner img[alt="DANONE"] {
+    max-height: 120px;
+}
