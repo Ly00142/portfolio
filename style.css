@@ -1863,8 +1863,8 @@ footer {
 /* Logo DANONE vertical en couleur : sur fond noir, comme L'Oréal */
 .timeline-logos img[alt="DANONE"] {
     background: #000;
-    height: 120px;
-    padding: 8px 12px;
+    height: 100px;
+    padding: 7px 11px;
 }
 
 .expertise-image.logo-banner:has(img[alt="DANONE"]) {
@@ -1872,7 +1872,7 @@ footer {
 }
 
 .expertise-image.logo-banner img[alt="DANONE"] {
-    max-height: 150px;
+    max-height: 130px;
 }
 
 /* Thème clair : le logo DANONE passe sur fond blanc */
