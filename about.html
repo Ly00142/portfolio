@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#0b1417">
     <script>
         // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
-        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+        try { if (sessionStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
     </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">

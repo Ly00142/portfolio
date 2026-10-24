@@ -206,7 +206,8 @@ if (nav) {
     });
 }
 
-// Thème clair / sombre. Le sombre est celui par défaut ; le choix est retenu d'une page à l'autre.
+// Thème clair / sombre. Le sombre est celui par défaut : chaque nouvelle visite repart sur le fond noir,
+// le choix n'est retenu que d'une page à l'autre pendant la visite.
 // La page applique le thème mémorisé dès le <head> pour éviter un flash de fond noir.
 if (nav) {
     const item = document.createElement('li');
@@ -232,7 +233,7 @@ if (nav) {
         const light = !isLight();
         if (light) document.documentElement.dataset.theme = 'light';
         else delete document.documentElement.dataset.theme;
-        try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* stockage indisponible */ }
+        try { sessionStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* stockage indisponible */ }
         render();
         if (reduceMotion) window.dispatchEvent(new Event('resize')); // redessine le fond figé
     });
