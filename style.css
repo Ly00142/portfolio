@@ -1824,3 +1824,14 @@ footer {
     aspect-ratio: 16 / 9;
     border: 0;
 }
+
+/* Logo L'Oréal : carré noir, sans cadre blanc autour */
+.timeline-logos img[alt="L'Oréal"] {
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+.expertise-image.logo-banner:has(img[alt="L'Oréal"]) {
+    background: #181617;
+}
