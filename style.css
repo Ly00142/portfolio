@@ -1825,13 +1825,17 @@ footer {
     border: 0;
 }
 
-/* Logo L'Oréal : carré noir, sans cadre blanc autour */
+/* Logo L'Oréal : blanc sur noir, la pastille prend le noir du logo */
 .timeline-logos img[alt="L'Oréal"] {
-    padding: 0;
-    background: transparent;
-    border: 0;
+    background: #000;
 }
 
 .expertise-image.logo-banner:has(img[alt="L'Oréal"]) {
-    background: #181617;
+    background: #000;
+}
+
+/* Logos carrés (Elivia, Secours Catholique, Sup'Management) : même hauteur que les autres */
+.timeline-logos img.square {
+    height: 44px;
+    padding: 3px;
 }
