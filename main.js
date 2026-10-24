@@ -343,7 +343,7 @@ if (!reduceMotion && videos.length) {
 // - seulement depuis le site en ligne, jamais pendant les tests en local ;
 // - les robots d'indexation sont ignorés.
 const EMAILJS = {
-    publicKey: '5UXnIOKQi3kVm7a_1',
+    publicKey: 'GRc3f0ZYS8PDr8VXb',
     serviceId: 'service_yb8ngkj',
     templateId: 'template_5exq5ha'
 };
