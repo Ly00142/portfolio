@@ -1874,3 +1874,9 @@ footer {
 .expertise-image.logo-banner img[alt="DANONE"] {
     max-height: 150px;
 }
+
+/* Thème clair : le logo DANONE passe sur fond blanc */
+:root[data-theme="light"] .timeline-logos img[alt="DANONE"],
+:root[data-theme="light"] .expertise-image.logo-banner:has(img[alt="DANONE"]) {
+    background: #fff;
+}
