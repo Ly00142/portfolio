@@ -1834,8 +1834,28 @@ footer {
     background: #000;
 }
 
+/* Logo Elivia : blanc et rouge sur noir, la pastille prend le noir du logo */
+.timeline-logos img[alt="Elivia"] {
+    background: #19171c;
+    padding: 0;
+}
+
+.expertise-image.logo-banner:has(img[alt="Elivia"]) {
+    background: #19171c;
+}
+
+.expertise-image.logo-banner img[alt="Elivia"] {
+    max-height: 110px;
+    max-width: 80%;
+}
+
+/* Pastilles de la frise plus hautes, pour lire les slogans (ADM) et les petits logos */
+.timeline-logos img {
+    height: 56px;
+}
+
 /* Logos carrés (Elivia, Secours Catholique, Sup'Management) : même hauteur que les autres */
 .timeline-logos img.square {
-    height: 44px;
+    height: 56px;
     padding: 3px;
 }
