@@ -1860,16 +1860,17 @@ footer {
     padding: 3px;
 }
 
-/* Logo DANONE blanc : la pastille prend le bleu du mot DANONE */
+/* Logo DANONE vertical en couleur : sur fond noir, comme L'Oréal */
 .timeline-logos img[alt="DANONE"] {
-    background: #3055ae;
-    padding: 4px 8px;
+    background: #000;
+    height: 80px;
+    padding: 6px 10px;
 }
 
 .expertise-image.logo-banner:has(img[alt="DANONE"]) {
-    background: #3055ae;
+    background: #000;
 }
 
 .expertise-image.logo-banner img[alt="DANONE"] {
-    max-height: 120px;
+    max-height: 135px;
 }
