@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Ly Jordan ABENG</title>
+    <meta property="og:title" content="Contact | Ly Jordan ABENG">
+    <meta property="og:description" content="Contacter Ly Jordan ABENG, ingénieur HSE.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
+    <meta name="theme-color" content="#0b1417">
+    <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
+    <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
+    <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
+    <meta name="description" content="Contacter Ly Jordan ABENG, ingénieur HSE.">
+    <link rel="stylesheet" href="./style.css?v=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div id="matrix-bg"></div>
+    <div class="overlay"></div>
+    <main>
+        <header>
+            <nav class="glass-nav">
+                <div class="logo">Ly Jordan ABENG</div>
+                <ul>
+                    <li><a href="./index.html">Accueil</a></li>
+                    <li><a href="./about.html">Parcours</a></li>
+                    <li><a href="./expertise.html">Compétences</a></li>
+                    <li><a href="./projects.html">Réalisations</a></li>
+                    <li><a href="./contact.html" class="active">Contact</a></li>
+                    <li class="lang-switch">
+                        <a href="./contact.html" class="active">FR</a> | <a href="./contact-en.html">EN</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="contenu" tabindex="-1"></div>
+
+        <section class="section-container">
+            <h2 class="section-title">Me contacter</h2>
+
+            <div class="contact-container">
+                <div class="contact-intro">
+                    <p style="text-align: center; color: var(--dim-color); margin-bottom: 2rem;">
+                        <i class="fas fa-helmet-safety" aria-hidden="true" style="color: var(--accent-color);"></i>
+                        Un poste, une mission HSE ou une question sur mon parcours ? Écrivez-moi.
+                    </p>
+                </div>
+
+                <form id="contact-form" class="contact-form" action="mailto:abenglyjordan44@gmail.com" method="GET" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nom <span class="required" aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" required placeholder="Votre nom complet">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" required placeholder="votre.email@exemple.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" placeholder="Objet de votre message">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" rows="6" required
+                            placeholder="Votre message..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn primary submit-btn">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer le message
+                    </button>
+
+                    <p class="form-note">Le bouton ouvre votre logiciel de messagerie avec le message prérempli.</p>
+                    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+                </form>
+
+                <div class="contact-methods">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--accent-color);">
+                        Ou directement
+                    </h3>
+                    <div class="contact-links" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+                        <a href="mailto:abenglyjordan44@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ly-jordan-abeng-ovono-279506260" target="_blank" rel="noopener" class="contact-link">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="./assets/docs/CV_Ly_Jordan_ABENG.pdf" target="_blank" rel="noopener" class="contact-link">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                            <span>CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/ly-jordan-abeng-ovono-279506260" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:abenglyjordan44@gmail.com" title="Email" aria-label="Email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                    <a href="./assets/docs/CV_Ly_Jordan_ABENG.pdf" target="_blank" rel="noopener" title="Télécharger le CV" aria-label="Télécharger le CV">
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <p class="footer-note">© 2026 Ly Jordan ABENG</p>
+            </div>
+        </footer>
+    </main>
+
+    <script type="module" src="./main.js?v=1"></script>
+    <script>
+        // Pas de service d'envoi : le formulaire compose un email dans la messagerie du visiteur.
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const to = 'abenglyjordan44@gmail.com';
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            const data = new FormData(form);
+            const subject = data.get('subject') || 'Portfolio : message de ' + data.get('name');
+            const body = data.get('message') + '\n\n' + data.get('name') + ' (' + data.get('email') + ')';
+            window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+            formStatus.innerHTML = '<div class="success-message">Votre messagerie s\'est ouverte avec le message prérempli. Si rien ne s\'est passé, écrivez directement à <a href="mailto:' + to + '">' + to + '</a>.</div>';
+        });
+    </script>
+</body>
+
+</html>
