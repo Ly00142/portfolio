@@ -391,7 +391,8 @@ if (location.hostname.endsWith('github.io') && !navigator.webdriver && !BOT_PATT
     sendVisitNotification();
 }
 
-// Son au clic sur les liens et les boutons, comme sur le portfolio de Patrick-Léon.
+// Son au survol des liens, boutons et cartes, comme sur le portfolio de Patrick-Léon.
+// Les navigateurs n'autorisent le son qu'après une première interaction (clic ou touche).
 // Pas sur le bouton son des vidéos, pour ne pas couvrir la vidéo.
 let audioCtx = null;
 
@@ -414,7 +415,9 @@ function playClickSound() {
     } catch (e) { /* audio indisponible : on reste silencieux */ }
 }
 
-document.addEventListener('click', e => {
-    const target = e.target.closest('a, button, .btn');
-    if (target && !target.classList.contains('sound-toggle')) playClickSound();
+document.querySelectorAll('a, button, .btn, .service-card, .project-card, .expertise-card').forEach(el => {
+    if (el.classList.contains('sound-toggle')) return;
+    el.addEventListener('pointerenter', e => {
+        if (e.pointerType === 'mouse') playClickSound();
+    });
 });
