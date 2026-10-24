@@ -1817,3 +1817,10 @@ footer {
 :root[data-theme="light"] .expertise-image.logo-banner {
     border-bottom: 1px solid var(--card-border);
 }
+
+.media-video iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+}
