@@ -10,6 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
     <meta name="theme-color" content="#0b1417">
+    <script>
+        // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
     <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
@@ -18,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,9 +37,9 @@
                 <div class="logo">Ly Jordan ABENG</div>
                 <ul>
                     <li><a href="./index-en.html">Home</a></li>
-                    <li><a href="./about-en.html" class="active">Journey</a></li>
-                    <li><a href="./expertise-en.html">Skills</a></li>
-                    <li><a href="./projects-en.html">Achievements</a></li>
+                    <li><a href="./about-en.html" class="active">About</a></li>
+                    <li><a href="./expertise-en.html">Expertise</a></li>
+                    <li><a href="./projects-en.html">Projects</a></li>
                     <li><a href="./contact-en.html">Contact</a></li>
                     <li class="lang-switch">
                         <a href="./about.html">FR</a> | <a href="./about-en.html" class="active">EN</a>
@@ -50,6 +54,7 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p id="about-hook">
+                        <span class="highlight">//</span>
                         I graduated from ESAIP as an engineer in risk management and environment, majoring in industrial and natural risks, and I specialise in occupational health and safety.
                     </p>
                     <p>
@@ -215,6 +220,70 @@
                         <ul>
                             <li>One-to-one maths tutoring, with support adapted to each pupil's pace.</li>
                         </ul>
+                    </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h2 class="section-title" id="tech-title">Skills & Tools</h2>
+            <div class="skills-gallery">
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-helmet-safety" aria-hidden="true" style="color: var(--accent-color);"></i> Occupational health and safety</h3>
+                            <ul class="competencies">
+                                <li>Risk assessment, single risk assessment document (DUERP)</li>
+                                <li>Lockout/tagout (LOTO)</li>
+                                <li>Root cause trees, near-miss analysis</li>
+                                <li>Ergonomics, line audits, HSE briefings</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-leaf" aria-hidden="true" style="color: var(--accent-color);"></i> Environment</h3>
+                            <ul class="competencies">
+                                <li>Environmental analysis, significant aspects</li>
+                                <li>Classified installations (ICPE)</li>
+                                <li>Carbon footprint</li>
+                                <li>GIS mapping with QGIS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-award" aria-hidden="true" style="color: var(--accent-color);"></i> Quality and management systems</h3>
+                            <ul class="competencies">
+                                <li>ISO 9001, 14001, 45001, 50001, 26000</li>
+                                <li>PDCA cycle, FMEA</li>
+                                <li>IQ / OQ / PQ qualification</li>
+                                <li>Writing procedures and quality deliverables</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-people-group" aria-hidden="true" style="color: var(--accent-color);"></i> Training and coordination</h3>
+                            <ul class="competencies">
+                                <li>Team training and awareness</li>
+                                <li>Coordination across sites</li>
+                                <li>Project management</li>
+                                <li>Corrective action plans and budget follow-up</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true" style="color: var(--accent-color);"></i> Tools</h3>
+                            <ul class="competencies">
+                                <li>QGIS: geoprocessing, layouts</li>
+                                <li>Advanced Excel: pivot tables, formulas</li>
+                                <li>Microsoft Office</li>
+                            </ul>
+                        </div>
                     </div>
             </div>
         </section>

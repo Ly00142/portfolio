@@ -10,6 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
     <meta name="theme-color" content="#0b1417">
+    <script>
+        // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
     <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
@@ -18,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,9 +37,9 @@
                 <div class="logo">Ly Jordan ABENG</div>
                 <ul>
                     <li><a href="./index-en.html">Home</a></li>
-                    <li><a href="./about-en.html">Journey</a></li>
-                    <li><a href="./expertise-en.html" class="active">Skills</a></li>
-                    <li><a href="./projects-en.html">Achievements</a></li>
+                    <li><a href="./about-en.html">About</a></li>
+                    <li><a href="./expertise-en.html" class="active">Expertise</a></li>
+                    <li><a href="./projects-en.html">Projects</a></li>
                     <li><a href="./contact-en.html">Contact</a></li>
                     <li class="lang-switch">
                         <a href="./expertise.html">FR</a> | <a href="./expertise-en.html" class="active">EN</a>
@@ -45,71 +49,141 @@
         </header>
         <div id="contenu" tabindex="-1"></div>
 
-        <section class="section-container">
-            <h2 class="section-title" id="expertise-title">Skills</h2>
-            <div class="skills-gallery">
-                    <div class="expertise-card no-image">
+        <section class="section-container" id="expertise">
+            <h2 class="section-title" id="expertise-title">Experience & Expertise</h2>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-briefcase" aria-hidden="true" style="color: var(--accent-color);"></i> Professional experience</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/danone.png" alt="Danone">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-helmet-safety" aria-hidden="true" style="color: var(--accent-color);"></i> Occupational health and safety</h3>
-                            <ul class="competencies">
-                                <li>Risk assessment, single risk assessment document (DUERP)</li>
-                                <li>Lockout/tagout (LOTO)</li>
-                                <li>Root cause trees, near-miss analysis</li>
-                                <li>Ergonomics, line audits, HSE briefings</li>
-                            </ul>
+                            <h3>Global Health, Safety and Wellbeing</h3>
+                            <p class="cert-origin">Danone, work-study (Sept. 2026 - present)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Supporting the rollout of group safety initiatives together with local site teams.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/loreal.png" alt="L'Oréal">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-leaf" aria-hidden="true" style="color: var(--accent-color);"></i> Environment</h3>
-                            <ul class="competencies">
-                                <li>Environmental analysis, significant aspects</li>
-                                <li>Classified installations (ICPE)</li>
-                                <li>Carbon footprint</li>
-                                <li>GIS mapping with QGIS</li>
-                            </ul>
+                            <h3>QEHS Engineer (internship)</h3>
+                            <p class="cert-origin">L'Oréal (Sept. 2025 - Feb. 2026)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                6 months: more natural production, weighing areas, utility water, IQ/OQ/PQ qualification and Quality and Safety training.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/crouzet.png" alt="Crouzet">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-award" aria-hidden="true" style="color: var(--accent-color);"></i> Quality and management systems</h3>
-                            <ul class="competencies">
-                                <li>ISO 9001, 14001, 45001, 50001, 26000</li>
-                                <li>PDCA cycle, FMEA</li>
-                                <li>IQ / OQ / PQ qualification</li>
-                                <li>Writing procedures and quality deliverables</li>
-                            </ul>
+                            <h3>Safety Environmental Engineer (internship)</h3>
+                            <p class="cert-origin">Crouzet (June - Aug. 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Environmental analysis and follow-up of significant aspects, prevention routines, HSE documentation.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/adm.png" alt="ADM" class="square">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-people-group" aria-hidden="true" style="color: var(--accent-color);"></i> Training and coordination</h3>
-                            <ul class="competencies">
-                                <li>Team training and awareness</li>
-                                <li>Coordination across sites</li>
-                                <li>Project management</li>
-                                <li>Corrective action plans and budget follow-up</li>
-                            </ul>
+                            <h3>Industrial Risk Engineer (internship)</h3>
+                            <p class="cert-origin">ADM (Jan. - May 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Lockout/tagout (LOTO) procedures for five types of energy and staff training.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/elivia.png" alt="Elivia" class="square">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true" style="color: var(--accent-color);"></i> Tools</h3>
-                            <ul class="competencies">
-                                <li>QGIS: geoprocessing, layouts</li>
-                                <li>Advanced Excel: pivot tables, formulas</li>
-                                <li>Microsoft Office</li>
-                            </ul>
+                            <h3>Production Assistant (fixed-term)</h3>
+                            <p class="cert-origin">Elivia (July - Sept. 2023)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                First hands-on experience of industrial food production.
+                            </p>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <div class="cert-block">
+                <h3><i class="fas fa-graduation-cap" aria-hidden="true" style="color: var(--accent-color);"></i> Education</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/esaip.png" alt="ESAIP">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Engineering degree, risk management and environment</h3>
+                            <p class="cert-origin">ESAIP, Angers (2022 - March 2026)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Major in industrial and natural risk management. Honours.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/uclm.png" alt="Universidad de Castilla-La Mancha">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Erasmus, environmental sciences</h3>
+                            <p class="cert-origin">UCLM, Toledo (Sept. 2024 - Feb. 2025)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                A semester taught in Spanish at the faculty of environmental sciences.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/liberec.png" alt="Technical University of Liberec">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Erasmus, mechanics, electronics and environment</h3>
+                            <p class="cert-origin">TU Liberec, Czech Republic (Feb. - June 2023)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                A semester taught in English.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-hand-holding-heart" aria-hidden="true" style="color: var(--accent-color);"></i> Volunteering</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/secours.png" alt="Secours Catholique" class="square">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Mathematics tutor</h3>
+                            <p class="cert-origin">Secours Catholique, Angers (Feb. - July 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Volunteer one-to-one maths tutoring.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-language" aria-hidden="true" style="color: var(--accent-color);"></i> Languages & Profile</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3><i class="fas fa-language" aria-hidden="true" style="color: var(--accent-color);"></i> Languages</h3>
+                            <h3>Languages</h3>
                             <ul class="lang-bars">
                                 <li>
                                     <span>French <em>Native</em></span>
@@ -126,23 +200,19 @@
                             </ul>
                         </div>
                     </div>
-            </div>
-        </section>
-
-        <section class="section-container" style="padding-top: 0;">
-            <div class="skills-gallery">
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3 class="subsection-title" style="margin-top: 0;">Qualities</h3>
+                            <h3>Qualities</h3>
                             <ul class="chips"><li>Autonomy</li><li>Rigour</li><li>Discipline</li><li>Energy</li></ul>
                         </div>
                     </div>
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3 class="subsection-title" style="margin-top: 0;">Interests</h3>
+                            <h3>Interests</h3>
                             <ul class="chips"><li>Environment</li><li>Football</li><li>Music</li><li>Fashion</li><li>Travel</li></ul>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 

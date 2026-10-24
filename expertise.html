@@ -10,6 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
     <meta name="theme-color" content="#0b1417">
+    <script>
+        // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
     <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
@@ -18,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,9 +37,9 @@
                 <div class="logo">Ly Jordan ABENG</div>
                 <ul>
                     <li><a href="./index.html">Accueil</a></li>
-                    <li><a href="./about.html">Parcours</a></li>
-                    <li><a href="./expertise.html" class="active">Compétences</a></li>
-                    <li><a href="./projects.html">Réalisations</a></li>
+                    <li><a href="./about.html">A Propos</a></li>
+                    <li><a href="./expertise.html" class="active">Expertise</a></li>
+                    <li><a href="./projects.html">Projets</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                     <li class="lang-switch">
                         <a href="./expertise.html" class="active">FR</a> | <a href="./expertise-en.html">EN</a>
@@ -45,71 +49,141 @@
         </header>
         <div id="contenu" tabindex="-1"></div>
 
-        <section class="section-container">
-            <h2 class="section-title" id="expertise-title">Compétences</h2>
-            <div class="skills-gallery">
-                    <div class="expertise-card no-image">
+        <section class="section-container" id="expertise">
+            <h2 class="section-title" id="expertise-title">Expériences & Expertise</h2>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-briefcase" aria-hidden="true" style="color: var(--accent-color);"></i> Expérience professionnelle</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/danone.png" alt="Danone">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-helmet-safety" aria-hidden="true" style="color: var(--accent-color);"></i> Santé et sécurité au travail</h3>
-                            <ul class="competencies">
-                                <li>Évaluation des risques, DUERP</li>
-                                <li>Consignation et déconsignation (LOTO)</li>
-                                <li>Arbre des causes, analyse des presqu'accidents</li>
-                                <li>Ergonomie, audits de ligne, minutes HSE</li>
-                            </ul>
+                            <h3>Global Health, Safety and Wellbeing</h3>
+                            <p class="cert-origin">Danone, alternance (Sept. 2026 - aujourd'hui)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Appui au déploiement des initiatives sécurité du groupe, en lien avec les équipes locales des sites.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/loreal.png" alt="L'Oréal">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-leaf" aria-hidden="true" style="color: var(--accent-color);"></i> Environnement</h3>
-                            <ul class="competencies">
-                                <li>Analyse environnementale, aspects significatifs (AES)</li>
-                                <li>Installations classées (ICPE)</li>
-                                <li>Bilan carbone</li>
-                                <li>Cartographie SIG avec QGIS</li>
-                            </ul>
+                            <h3>Ingénieur QHSE (stage)</h3>
+                            <p class="cert-origin">L'Oréal (Sept. 2025 - Févr. 2026)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                6 mois : production plus naturelle, zones de pesée, eau des utilités, qualification IQ/OQ/PQ et formations Qualité et Sécurité.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/crouzet.png" alt="Crouzet">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-award" aria-hidden="true" style="color: var(--accent-color);"></i> Qualité et systèmes de management</h3>
-                            <ul class="competencies">
-                                <li>ISO 9001, 14001, 45001, 50001, 26000</li>
-                                <li>Cycle PDCA, AMDEC</li>
-                                <li>Qualification IQ / OQ / PQ</li>
-                                <li>Rédaction de procédures et de livrables qualité</li>
-                            </ul>
+                            <h3>Ingénieur sécurité environnement (stage)</h3>
+                            <p class="cert-origin">Crouzet (Juin - Août 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Analyse environnementale et suivi des aspects significatifs, rituels de prévention, supports documentaires HSE.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/adm.png" alt="ADM" class="square">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-people-group" aria-hidden="true" style="color: var(--accent-color);"></i> Animation et pilotage</h3>
-                            <ul class="competencies">
-                                <li>Formation et sensibilisation des équipes</li>
-                                <li>Coordination avec plusieurs sites</li>
-                                <li>Gestion de projet</li>
-                                <li>Plans d'actions correctives et suivi budgétaire</li>
-                            </ul>
+                            <h3>Ingénieur risques industriels (stage)</h3>
+                            <p class="cert-origin">ADM (Janv. - Mai 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Procédures de consignation (LOTO) pour cinq types d'énergie et formation du personnel.
+                            </p>
                         </div>
                     </div>
-
-                    <div class="expertise-card no-image">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/elivia.png" alt="Elivia" class="square">
+                        </div>
                         <div class="expertise-content">
-                            <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true" style="color: var(--accent-color);"></i> Outils</h3>
-                            <ul class="competencies">
-                                <li>QGIS : géotraitement, mise en page</li>
-                                <li>Excel avancé : tableaux croisés, formules</li>
-                                <li>Pack Office</li>
-                            </ul>
+                            <h3>Assistant de production (CDD)</h3>
+                            <p class="cert-origin">Elivia (Juil. - Sept. 2023)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Premier contact avec la production industrielle en agroalimentaire.
+                            </p>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <div class="cert-block">
+                <h3><i class="fas fa-graduation-cap" aria-hidden="true" style="color: var(--accent-color);"></i> Formation</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/esaip.png" alt="ESAIP">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Diplôme d'ingénieur, gestion des risques et environnement</h3>
+                            <p class="cert-origin">ESAIP, Angers (2022 - Mars 2026)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Option gestion des risques industriels et naturels. Mention bien.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/uclm.png" alt="Universidad de Castilla-La Mancha">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Erasmus, sciences de l'environnement</h3>
+                            <p class="cert-origin">UCLM, Tolède (Sept. 2024 - Févr. 2025)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Semestre d'études en espagnol à la faculté des sciences environnementales.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/liberec.png" alt="Technical University of Liberec">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Erasmus, mécanique, électronique et environnement</h3>
+                            <p class="cert-origin">TU Liberec, République tchèque (Févr. - Juin 2023)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Semestre d'études en anglais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-hand-holding-heart" aria-hidden="true" style="color: var(--accent-color);"></i> Engagement associatif</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <div class="expertise-card">
+                        <div class="expertise-image logo-banner" style="height: 160px;">
+                            <img src="./assets/images/logos/secours.png" alt="Secours Catholique" class="square">
+                        </div>
+                        <div class="expertise-content">
+                            <h3>Répétiteur de mathématiques</h3>
+                            <p class="cert-origin">Secours Catholique, Angers (Févr. - Juil. 2024)</p>
+                            <p style="color: var(--dim-color); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Soutien scolaire bénévole en mathématiques, en accompagnement individuel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-block">
+                <h3><i class="fas fa-language" aria-hidden="true" style="color: var(--accent-color);"></i> Langues & Profil</h3>
+                <div class="skills-gallery" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3><i class="fas fa-language" aria-hidden="true" style="color: var(--accent-color);"></i> Langues</h3>
+                            <h3>Langues</h3>
                             <ul class="lang-bars">
                                 <li>
                                     <span>Français <em>Langue maternelle</em></span>
@@ -126,23 +200,19 @@
                             </ul>
                         </div>
                     </div>
-            </div>
-        </section>
-
-        <section class="section-container" style="padding-top: 0;">
-            <div class="skills-gallery">
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3 class="subsection-title" style="margin-top: 0;">Qualités</h3>
+                            <h3>Qualités</h3>
                             <ul class="chips"><li>Autonomie</li><li>Rigueur</li><li>Discipline</li><li>Dynamisme</li></ul>
                         </div>
                     </div>
                     <div class="expertise-card no-image">
                         <div class="expertise-content">
-                            <h3 class="subsection-title" style="margin-top: 0;">Centres d'intérêt</h3>
+                            <h3>Centres d'intérêt</h3>
                             <ul class="chips"><li>Environnement</li><li>Football</li><li>Musique</li><li>Mode</li><li>Voyages et découvertes</li></ul>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 

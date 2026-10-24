@@ -10,6 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
     <meta name="theme-color" content="#0b1417">
+    <script>
+        // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
     <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
@@ -18,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,9 +37,9 @@
                 <div class="logo">Ly Jordan ABENG</div>
                 <ul>
                     <li><a href="./index.html">Accueil</a></li>
-                    <li><a href="./about.html" class="active">Parcours</a></li>
-                    <li><a href="./expertise.html">Compétences</a></li>
-                    <li><a href="./projects.html">Réalisations</a></li>
+                    <li><a href="./about.html" class="active">A Propos</a></li>
+                    <li><a href="./expertise.html">Expertise</a></li>
+                    <li><a href="./projects.html">Projets</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                     <li class="lang-switch">
                         <a href="./about.html" class="active">FR</a> | <a href="./about-en.html">EN</a>
@@ -46,10 +50,11 @@
         <div id="contenu" tabindex="-1"></div>
 
         <section class="section-container">
-            <h2 class="section-title" id="about-title">À propos de moi</h2>
+            <h2 class="section-title" id="about-title">A propos de moi</h2>
             <div class="about-grid">
                 <div class="about-text">
                     <p id="about-hook">
+                        <span class="highlight">//</span>
                         Ingénieur diplômé de l'ESAIP en gestion des risques et environnement, option risques industriels et naturels, je me suis spécialisé dans la santé et la sécurité au travail.
                     </p>
                     <p>
@@ -215,6 +220,70 @@
                         <ul>
                             <li>Soutien scolaire individuel en mathématiques, avec un suivi adapté au rythme de chaque élève.</li>
                         </ul>
+                    </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h2 class="section-title" id="tech-title">Compétences & Outils</h2>
+            <div class="skills-gallery">
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-helmet-safety" aria-hidden="true" style="color: var(--accent-color);"></i> Santé et sécurité au travail</h3>
+                            <ul class="competencies">
+                                <li>Évaluation des risques, DUERP</li>
+                                <li>Consignation et déconsignation (LOTO)</li>
+                                <li>Arbre des causes, analyse des presqu'accidents</li>
+                                <li>Ergonomie, audits de ligne, minutes HSE</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-leaf" aria-hidden="true" style="color: var(--accent-color);"></i> Environnement</h3>
+                            <ul class="competencies">
+                                <li>Analyse environnementale, aspects significatifs (AES)</li>
+                                <li>Installations classées (ICPE)</li>
+                                <li>Bilan carbone</li>
+                                <li>Cartographie SIG avec QGIS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-award" aria-hidden="true" style="color: var(--accent-color);"></i> Qualité et systèmes de management</h3>
+                            <ul class="competencies">
+                                <li>ISO 9001, 14001, 45001, 50001, 26000</li>
+                                <li>Cycle PDCA, AMDEC</li>
+                                <li>Qualification IQ / OQ / PQ</li>
+                                <li>Rédaction de procédures et de livrables qualité</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-people-group" aria-hidden="true" style="color: var(--accent-color);"></i> Animation et pilotage</h3>
+                            <ul class="competencies">
+                                <li>Formation et sensibilisation des équipes</li>
+                                <li>Coordination avec plusieurs sites</li>
+                                <li>Gestion de projet</li>
+                                <li>Plans d'actions correctives et suivi budgétaire</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card no-image">
+                        <div class="expertise-content">
+                            <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true" style="color: var(--accent-color);"></i> Outils</h3>
+                            <ul class="competencies">
+                                <li>QGIS : géotraitement, mise en page</li>
+                                <li>Excel avancé : tableaux croisés, formules</li>
+                                <li>Pack Office</li>
+                            </ul>
+                        </div>
                     </div>
             </div>
         </section>

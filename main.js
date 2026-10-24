@@ -1,5 +1,6 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isEnglish = document.documentElement.lang === 'en';
+const isLight = () => document.documentElement.dataset.theme === 'light';
 
 // Fond animé : des points qui dérivent et se relient quand ils sont proches.
 // Décoratif, masqué aux lecteurs d'écran, en pause quand l'onglet est caché
@@ -40,7 +41,9 @@ if (networkBg) {
                 const dy = points[i].y - points[j].y;
                 const d = Math.hypot(dx, dy);
                 if (d < linkDistance) {
-                    ctx.strokeStyle = `rgba(45, 212, 191, ${0.25 * (1 - d / linkDistance)})`;
+                    ctx.strokeStyle = isLight()
+                        ? `rgba(15, 143, 130, ${0.35 * (1 - d / linkDistance)})`
+                        : `rgba(45, 212, 191, ${0.25 * (1 - d / linkDistance)})`;
                     ctx.beginPath();
                     ctx.moveTo(points[i].x, points[i].y);
                     ctx.lineTo(points[j].x, points[j].y);
@@ -48,7 +51,7 @@ if (networkBg) {
                 }
             }
         }
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+        ctx.fillStyle = isLight() ? 'rgba(3, 105, 161, 0.5)' : 'rgba(56, 189, 248, 0.6)';
         for (const p of points) {
             ctx.beginPath();
             ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
@@ -201,6 +204,39 @@ if (nav) {
             toggle.focus();
         }
     });
+}
+
+// Thème clair / sombre. Le sombre est celui par défaut ; le choix est retenu d'une page à l'autre.
+// La page applique le thème mémorisé dès le <head> pour éviter un flash de fond noir.
+if (nav) {
+    const item = document.createElement('li');
+    item.className = 'theme-item';
+    const themeBtn = document.createElement('button');
+    themeBtn.type = 'button';
+    themeBtn.className = 'theme-toggle';
+    item.appendChild(themeBtn);
+    nav.querySelector('.lang-switch').before(item);
+
+    const render = () => {
+        const light = isLight();
+        const label = light
+            ? (isEnglish ? 'Switch to dark mode' : 'Passer en fond sombre')
+            : (isEnglish ? 'Switch to light mode' : 'Passer en fond clair');
+        themeBtn.innerHTML = '<i class="fas ' + (light ? 'fa-moon' : 'fa-sun') + '" aria-hidden="true"></i>';
+        themeBtn.setAttribute('aria-label', label);
+        themeBtn.title = label;
+        document.querySelector('meta[name="theme-color"]').content = light ? '#f4f7f7' : '#0b1417';
+    };
+
+    themeBtn.addEventListener('click', () => {
+        const light = !isLight();
+        if (light) document.documentElement.dataset.theme = 'light';
+        else delete document.documentElement.dataset.theme;
+        try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* stockage indisponible */ }
+        render();
+        if (reduceMotion) window.dispatchEvent(new Event('resize')); // redessine le fond figé
+    });
+    render();
 }
 
 // Visionneuse de certificats : ouvrable à la souris et au clavier, fermée par Échap,

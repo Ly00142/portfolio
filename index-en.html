@@ -10,6 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ly00142.github.io/portfolio/assets/og.jpg">
     <meta name="theme-color" content="#0b1417">
+    <script>
+        // Thème mémorisé appliqué avant l'affichage, pour éviter un flash de fond noir.
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="icon" href="/portfolio/favicon.ico?v=1" sizes="any">
     <link rel="icon" type="image/png" href="/portfolio/favicon-32.png?v=1">
     <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png?v=1">
@@ -18,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,9 +37,9 @@
                 <div class="logo">Ly Jordan ABENG</div>
                 <ul>
                     <li><a href="./index-en.html" class="active">Home</a></li>
-                    <li><a href="./about-en.html">Journey</a></li>
-                    <li><a href="./expertise-en.html">Skills</a></li>
-                    <li><a href="./projects-en.html">Achievements</a></li>
+                    <li><a href="./about-en.html">About</a></li>
+                    <li><a href="./expertise-en.html">Expertise</a></li>
+                    <li><a href="./projects-en.html">Projects</a></li>
                     <li><a href="./contact-en.html">Contact</a></li>
                     <li class="lang-switch">
                         <a href="./index.html">FR</a> | <a href="./index-en.html" class="active">EN</a>
@@ -48,31 +52,27 @@
         <section id="home" class="hero-section full-height">
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="current-role"><span class="dot" aria-hidden="true"></span><img src="./assets/images/logos/danone.png" alt="Danone"> <span><strong>Global Health, Safety and Wellbeing</strong> at Danone, work-study</span></p>
-                    <h1 class="glitch">Ly Jordan <span class="accent">ABENG</span></h1>
-                    <p class="hero-school">ESAIP engineer in risk management and environment</p>
-                    <h2 class="role">Occupational health and safety • Environment • Quality</h2>
-                    <p class="bio-short">Assessing the risks of an industrial site, setting up the procedures that control them and making sure teams actually use them: that is the core of my work.</p>
+                    <h1 class="glitch" data-text="HSE Engineer">
+                        HSE Engineer</h1>
+                    <p class="hero-school">at Danone, work-study</p>
+                    <h2 class="role">Health & Safety • Environment • Quality</h2>
+                    <p class="bio-short">
+                        Assessing the risks of an industrial site, setting up the procedures that control them and making sure teams actually use them: that is the core of my work.
+                    </p>
 
                     <div class="cta-buttons">
-                        <a href="./about-en.html" class="btn primary">My journey</a>
-                        <a href="./projects-en.html" class="btn secondary">My achievements</a>
+                        <a href="./about-en.html" class="btn primary">My Journey</a>
+                        <a href="./projects-en.html" class="btn secondary">My Projects</a>
                     </div>
                     <ul class="hero-links" aria-label="Online profiles">
                         <li><a href="https://www.linkedin.com/in/ly-jordan-abeng-ovono-279506260" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
                         <li><a href="mailto:abenglyjordan44@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
                         <li><a href="./assets/docs/CV_Ly_Jordan_ABENG.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf" aria-hidden="true"></i> CV</a></li>
                     </ul>
-                    <ul class="key-facts">
-                        <li><strong>5</strong><span>industrial companies</span></li>
-                        <li><strong>2</strong><span>Erasmus semesters</span></li>
-                        <li><strong>Honours</strong><span>on the engineering degree</span></li>
-                        <li><strong>3</strong><span>languages spoken</span></li>
-                    </ul>
                 </div>
                 <div class="hero-image-container">
                     <div class="image-frame">
-                        <img src="./assets/images/jordan.jpg" alt="Photo of Ly Jordan ABENG" class="profile-pic" width="640" height="640">
+                        <img src="./assets/images/jordan.jpg" alt="Photo of Ly Jordan ABENG" class="profile-pic">
                     </div>
                 </div>
             </div>
