@@ -335,3 +335,57 @@ if (!reduceMotion && videos.length) {
     }, { threshold: 0.4 });
     videos.forEach(video => videoObserver.observe(video));
 }
+
+// Notification de visite envoyée à Jordan par EmailJS, comme sur son ancien portfolio
+// (même service, même modèle d'email, mêmes variables).
+// - un seul envoi par visite, pas un par page vue ;
+// - seulement depuis le site en ligne, jamais pendant les tests en local ;
+// - les robots d'indexation sont ignorés.
+const EMAILJS = {
+    publicKey: '5UXnIOKQi3kVm7a_1',
+    serviceId: 'service_yb8ngkj',
+    templateId: 'template_5exq5ha'
+};
+const BOT_PATTERN = /bot|crawl|spider|slurp|preview|headless|lighthouse|facebookexternalhit|linkedin|whatsapp|telegram/i;
+
+async function sendVisitNotification() {
+    try {
+        if (sessionStorage.getItem('visit-notified')) return;
+        sessionStorage.setItem('visit-notified', '1');
+    } catch (e) { /* stockage indisponible : on envoie quand même */ }
+
+    try {
+        const ipData = await fetch('https://ipapi.co/json/').then(res => res.json());
+
+        let entreprise = ipData.org || 'N/A';
+        if (/orange|free|sfr|bouygues/i.test(entreprise)) {
+            entreprise = 'Particulier / réseau privé';
+        }
+
+        await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_id: EMAILJS.serviceId,
+                template_id: EMAILJS.templateId,
+                user_id: EMAILJS.publicKey,
+                template_params: {
+                    ip: ipData.ip,
+                    country: ipData.country_name,
+                    city: ipData.city,
+                    isp: ipData.org,
+                    entreprise: entreprise,
+                    browser: navigator.userAgent.substring(0, 120),
+                    page: window.location.href,
+                    date: new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })
+                }
+            })
+        });
+    } catch (error) {
+        console.log('Notification de visite non envoyée', error);
+    }
+}
+
+if (location.hostname.endsWith('github.io') && !navigator.webdriver && !BOT_PATTERN.test(navigator.userAgent)) {
+    sendVisitNotification();
+}
