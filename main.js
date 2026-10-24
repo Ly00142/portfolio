@@ -390,3 +390,31 @@ async function sendVisitNotification() {
 if (location.hostname.endsWith('github.io') && !navigator.webdriver && !BOT_PATTERN.test(navigator.userAgent)) {
     sendVisitNotification();
 }
+
+// Son au clic sur les liens et les boutons, comme sur le portfolio de Patrick-Léon.
+// Pas sur le bouton son des vidéos, pour ne pas couvrir la vidéo.
+let audioCtx = null;
+
+function playClickSound() {
+    try {
+        audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.setValueAtTime(120, audioCtx.currentTime);
+        oscillator.frequency.linearRampToValueAtTime(800, audioCtx.currentTime + 0.05);
+        gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.05);
+    } catch (e) { /* audio indisponible : on reste silencieux */ }
+}
+
+document.addEventListener('click', e => {
+    const target = e.target.closest('a, button, .btn');
+    if (target && !target.classList.contains('sound-toggle')) playClickSound();
+});
